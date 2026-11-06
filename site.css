@@ -235,3 +235,9 @@ body[data-app="freereel"] .updates .page-head::before { background: radial-gradi
   .rel time { margin-left: 0; flex-basis: 100%; }
   .dl { width: 100%; }
 }
+
+.fine a { color: var(--ink); }
+.webdiff li { grid-template-columns: 12px minmax(0, 1fr); }
+.webdiff li::before { content: ""; width: 7px; height: 7px; border-radius: 2px; border: 0; background: var(--tune); margin-top: .6em; transform: rotate(45deg); }
+.card.reel .webdiff li::before { background: var(--reel); }
+.card > .btn { justify-self: start; }
