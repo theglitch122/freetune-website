@@ -1,0 +1,48 @@
+# Netlify settings for FreeApps. The site is plain files: nothing to build.
+[build]
+  publish = "."
+
+# App files download instead of opening as text in the browser.
+[[headers]]
+  for = "/downloads/*.apk"
+  [headers.values]
+    Content-Type = "application/vnd.android.package-archive"
+[[headers]]
+  for = "/downloads/updates/*.apk"
+  [headers.values]
+    Content-Type = "application/vnd.android.package-archive"
+[[headers]]
+  for = "/downloads/*.ipa"
+  [headers.values]
+    Content-Type = "application/octet-stream"
+    Content-Disposition = "attachment"
+[[headers]]
+  for = "/downloads/updates/*.update"
+  [headers.values]
+    Content-Type = "application/octet-stream"
+    Content-Disposition = "attachment"
+
+# The web apps: no tracking by referrer, and screenshots/logos cached for a day.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# Short addresses for the web versions.
+[[redirects]]
+  from = "/tune"
+  to = "/tune/"
+  status = 301
+[[redirects]]
+  from = "/reel"
+  to = "/reel/"
+  status = 301
+[[redirects]]
+  from = "/web"
+  to = "/#web"
+  status = 302
